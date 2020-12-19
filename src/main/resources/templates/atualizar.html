@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/update.css' th:href="@{update.css}">
+</head>
+<body>
+    <form th:object="${dados}" method="POST" action="/">
+        <label>Identificação:</label>
+        <input type="text" th:field="*{id}" readonly="readonly">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}">
+        <label>idade:</label>
+        <input type="text" th:field="*{idade}">
+        <input type="submit" value="Editar">
+    </form>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Index</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/unico.css' th:href="@{unico.css}">
+    <!-- <script src="../static/main.js" th:src="@{main.js}"></script> -->
+</head>
+<body>
+    <section>
+        <form method="POST" action="/">
+            <legend>Cadastro</legend>
+            <div>
+                <input placeholder="Nome" type="text" name="nome" >
+                <input placeholder="Idade" type="number" name="idade">
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <section>
+        <div class="consulta" th:each="infor : ${ed}">
+            <legend>Lista</legend>
+            <div class="consulta-tex">
+                <div>
+                    <p>Nome:</p>
+                    <p>idade:</p>
+                </div>
+                <div>
+                    <p th:text="${infor.nome}">Nome</p>
+                    <p th:text="${infor.idade}">idade</p>
+                </div>
+            </div>
+            <div class="div-links">
+                <a th:href="@{/delete/{id}(id=${infor.id})}">APAGAR</a>
+                <a th:href="@{/update/{id}(id=${infor.id})}">Atualizar</a>
+            </div>
+         </div> 
+    </section>
+</body>
+</html>
